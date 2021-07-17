@@ -9,8 +9,8 @@
   "private": true,
   "scripts": {
     "start": "openapi preview-docs",
-    "buildSchema": "openapi bundle -o dist/openapi.yaml",
-    "buildDoc": "npx redoc-cli bundle dist/openapi.yaml",
+    "buildSchema": "openapi bundle -o openapi.yaml",
+    "buildDoc": "npx redoc-cli bundle openapi.yaml -o build/index.html",
     "test": "openapi lint"
   }
 }
