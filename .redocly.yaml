@@ -4,6 +4,10 @@ apiDefinitions:
 lint:
   extends:
     - recommended
+  plugins:
+    - './plugins/code-samples-plugin.js'
+  decorators:
+    custom/add-code-samples: error
   rules:
     no-unused-components: warning
 referenceDocs:

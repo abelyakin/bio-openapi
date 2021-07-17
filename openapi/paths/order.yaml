@@ -1,0 +1,30 @@
+post:
+  tags:
+    - Order
+  summary: Order test
+  description: Тестовое описание
+  operationId: order
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ./order/components/order.yaml
+          examples:
+            response:
+              value: Заказ
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            id:
+              type: integer
+              format: int64
+              description: id
+              example: 23456
+          required:
+            - id
+
