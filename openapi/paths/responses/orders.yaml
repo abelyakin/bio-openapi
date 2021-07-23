@@ -1,0 +1,62 @@
+type: object
+properties:
+  pagesCount:
+    type: number
+    description: количество страниц
+  totalDocs:
+    type: number
+    description: общее количество документов
+  inWorkDocs:
+    type: number
+    description: количество документов в статусе 'В работе'
+  finishedDocs:
+    type: number
+    description: количество документов в статусе 'Завершено'  
+  orders:
+    type: array
+    items:
+      type: object
+      properties:
+        number:
+          type: string
+          description: номер заказа
+        date:
+          type: string
+          format: dd.MM.yy ЧЧ:мм
+          description: дата заказа
+        link:
+          type: string
+          description: ссылка на заказ
+        company:
+          type: string      
+          description: контрагент
+        contactPerson:
+          type: string
+          description: контактное лицо
+        sum:
+          type: number
+          description: сумма документа
+        currency:
+          type: string
+          description: валюта
+        paymentPercent:
+          type: number
+          description: процент оплаты
+        shipmentPercent:
+          type: number
+          description: процент отгрузки
+        completePercent:
+          type: number
+          description: процент комплектации
+        state:
+          type: string
+          description: состояние заказа
+        isReclamation:
+          type: boolean
+          description: признак 'Это рекламация'
+
+
+
+
+
+

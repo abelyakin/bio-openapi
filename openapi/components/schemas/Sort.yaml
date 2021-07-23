@@ -1,0 +1,13 @@
+type: object
+description: сортировка строк
+properties:
+  name:
+    type: string
+    description: имя поля списка
+  trend:
+    type: string
+    enum:
+      - DESCR
+      - ASC
+    description: Направление сортировки    
+    
