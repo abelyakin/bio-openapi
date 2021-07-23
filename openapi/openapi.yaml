@@ -1,7 +1,7 @@
 openapi: 3.0.2
 info:
   version: 1.0.0
-  title: BIO API
+  title: BIO PORTAL API
   contact:
     email: info@holdingbio.ru
     url: 'https://holdingbio.ru'
@@ -17,20 +17,37 @@ info:
 
     [пример ссылки](https://holdingbio.ru).
 
-    # Аутентификация
+    # Протокол передачи данных
+    
+    На текущий момент API поддерживает HTTP протокол. HTTPS протокол будет внедрен в ближайшее время.
 
-    ...Описание...
+    # Формат запросов
+
+    По умолчанию в API используются POST-запросы.
+
+    # Аутентификация
+    
+    Все запросы требуют логин и пароль пользователя для аутентификации.
+
 externalDocs:
-  description: Дополнительное описание
-  url: 'https://holdingbio.ru'
+  description: Хочу на портал
+  url: 'http://api.bioshop.ru:8888/portal'
 tags:
   - name: Order
     description: Информация по выбранному заказу
+  - name: Orders
+    description: Список всех заказов клиента
+  - name: Bonuses
+    description: Бонусы клиента
 servers:
   - url: 'http://api.bioshop.ru:8030'
 paths:
   /order:
     $ref: paths/order.yaml
+  /orders:
+    $ref: paths/orders.yaml
+  /bonuses:
+    $ref: paths/bonuses.yaml
 components:
   securitySchemes:
     main_auth:

@@ -1,0 +1,20 @@
+type: array
+items:
+  type: object
+  properties:
+    date: 
+      type: string
+      format: dd.MM.yyyy
+      description: день начисления или списания бонуса
+    start:
+      type: number
+      description: начальный остаток
+    coming:
+      type: number
+      description: приход
+    consume:
+      type: number
+      description: расход
+    end:
+      type: number
+      description: конечный остаток

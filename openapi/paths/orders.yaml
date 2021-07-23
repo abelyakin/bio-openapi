@@ -1,0 +1,51 @@
+post:
+  tags:
+    - Orders
+  summary: Список заказов клиента
+  description: Получение списка заказов
+  operationId: orders
+  requestBody:
+    description: Может включать параметры отбора, сортировки, поиска
+    required: true
+    content: 
+      'application/json; charset=utf-8':
+        schema:
+          type: object
+          properties:
+            login:
+              type: string
+            password:
+              type: string
+            page:
+              type: number
+              default: 1
+              description: отображаемая страница списка              
+            state:
+              type: string
+              enum:
+                - all
+                - inwork
+                - finished
+              default: inwork 
+              description: состояние заказа            
+            companyFilter:
+              type: string
+              format: uuid
+              description: уникальный идентификатор контрагента
+            sort:
+              $ref: '../components/schemas/Sort.yaml'              
+            search:
+              type: string
+              description: строка поиска  
+          required:
+            - login
+            - password    
+  responses:
+    '200':
+      description: OK
+      content:
+        'application/json; charset=utf-8':
+          schema:
+            $ref: './responses/orders.yaml'
+
+
