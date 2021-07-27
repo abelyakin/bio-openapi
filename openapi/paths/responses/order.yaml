@@ -1,0 +1,139 @@
+type: object
+properties:
+  number:
+    type: string
+    description: Номер заказа
+  date:
+    type: string
+    format: dd.MM.yyyy HH:mm
+    description: Дата заказа
+  firm:
+    type: string
+    description: Организация
+  company:
+    type: string
+    description: Юридическое лицо
+  sum:
+    type: number
+    description: Сумма документа
+  currency:
+    type: string
+    description: Валюта
+  manager:
+    type: string
+    description: Менеджер
+  storage:
+    type: string
+    description: Склад
+  contactPerson:
+    type: string
+    description: Контактное лицо (пользователь, создавший заказ)
+  paymentSum:
+    type: number
+    description: Сумма оплаты
+  paymentPercent:
+    type: number
+    description: Процент оплаты
+  shipmentSum:
+    type: number
+    description: Сумма отгрузки
+  shipmentPercent:
+    type: number
+    description: Процент отгрузки
+  completeSum:
+    type: number
+    description: Сумма комплектации
+  completePercent:
+    type: number
+    description: Процент комплектации
+  isDraft:
+    type: boolean
+    description: Признак 'Это черновик заказа'
+  activeShipmentDoc:
+    type: object
+    description: Ближайшая заявка на отгрузку
+    properties:
+      descr:
+        type: string
+        description: Номер/дата заявки
+      clientDate:
+        type: string
+        format: dd.MM.yyyy
+        description: Желаемая дата отгрузки
+      sum:
+        type: number
+        description: Сумма документа
+      currency:
+        type: string
+        description: Валюта
+  comment:
+    type: string
+    description: Комментарий
+  products:
+    type: array
+    description: Список товаров
+    items:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Код товара
+        name:
+          type: string
+          description: Наименование товара
+        unit:
+          type: string
+          description: Единица измерения
+        quantity:
+          type: string
+          description: Количество
+        price:
+          type: string
+          description: Цена
+        tax:
+          type: string
+          description: Ставка НДС
+          enum:
+            - 20%
+            - 10%
+            - Без НДС
+        taxSum:
+          type: string
+          description: Сумма НДС
+        discont:
+            type: string
+            description: Примененная скидка
+        sum:
+          type: string
+          description: Итоговая сумма с НДС
+  upd:
+    type: array
+    description: Список реализаций к заказу
+    items:
+      type: object      
+      properties:
+        number:
+          type: string
+          description: Номер реализации
+        sum:
+          type: number
+          description: Сумма документа
+        currency:
+          type: string
+          description: Валюта
+
+        
+
+
+
+
+
+    
+
+
+
+
+
+
+  
+    

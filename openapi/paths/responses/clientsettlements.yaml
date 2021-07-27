@@ -1,0 +1,99 @@
+type: array
+description: Детализация расчетов до валюты
+items:
+  type: object
+  properties:
+    startDebt:
+      type: number
+      description: Долг (начальный остаток)
+    startPrepay:
+      type: number
+      description: Аванс (начальный остаток)
+    debt:
+      type: number
+      description: Увеличение долга (сумма отгрузки)
+    pay:
+      type: number
+      description: Уменьшение долга (сумма оплаты)
+    endDebt:
+      type: number
+      description: Долг (конечный остаток)
+    endPrepay:
+      type: number
+      description: Аванс (конечный остаток)
+    currency:
+      type: string
+      description: Валюта
+    records:
+      type: array
+      description: Детализация расчетов до юридических лиц
+      items:
+        type: object
+        properties:
+          startDebt:
+            type: number
+            description: Долг (начальный остаток)
+          startPrepay:
+            type: number
+            description: Аванс (начальный остаток)
+          debt:
+            type: number
+            description: Увеличение долга (сумма отгрузки)
+          pay:
+            type: number
+            description: Уменьшение долга (сумма оплаты)
+          endDebt:
+            type: number
+            description: Долг (конечный остаток)
+          endPrepay:
+            type: number
+            description: Аванс (конечный остаток)
+          company:
+            type: string
+            description: Юридическое лицо
+          records:
+            type: array
+            description: Детализация расчетов до документов
+            items:
+              type: object
+              properties:
+                startDebt:
+                  type: number
+                  description: Долг (начальный остаток)
+                startPrepay:
+                  type: number
+                  description: Аванс (начальный остаток)
+                debt:
+                  type: number
+                  description: Увеличение долга (сумма отгрузки)
+                pay:
+                  type: number
+                  description: Уменьшение долга (сумма оплаты)
+                endDebt:
+                  type: number
+                  description: Долг (конечный остаток)
+                endPrepay:
+                  type: number
+                  description: Аванс (конечный остаток)
+                object:
+                  type: string
+                  description: Представление документа
+                link:
+                  type: string
+                  description: Ссылка на заказ клиента
+                number:
+                  type: string
+                  description: Номер заказа
+                date:
+                  type: string
+                  description: Дата заказа
+                  format: dd.MM.yyyy HH:mm:ss
+
+          
+
+            
+
+
+
+
+

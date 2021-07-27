@@ -1,0 +1,44 @@
+post:
+  tags:
+    - Client settlements
+  summary: Расчеты с клиентом
+  description: Получение информации по взаиморасчетам. Возможно получение данных в XLSX-формате
+  operationId: clientsettlements
+  requestBody:
+    required: true
+    content:
+      'application/json; charset=utf-8':
+        schema:
+          type: object
+          properties:
+            login:
+              type: string
+            password:
+              type: string
+            startDate:
+              type: string
+              format: yyyy-MM-dd | yyyyMMdd
+              description: Начало периода
+            endDate:
+              type: string
+              format: yyyy-MM-dd | yyyyMMdd
+              description: Окончание периода
+            download:
+              type: boolean
+              description: Признак формирования отчета в XLSX-формате
+            companyFilter:
+              type: string
+              format: uuid
+              description: уникальный идентификатор юридического лица
+          required:
+            - login
+            - password
+            - startDate
+            - endDate          
+  responses:
+    '200':
+      description: OK
+      content:
+        'application/json; charset=utf-8':
+          schema:
+            $ref: './responses/clientsettlements.yaml'            

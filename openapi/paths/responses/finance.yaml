@@ -1,0 +1,20 @@
+type: object
+properties:
+  bonuses:
+    type: number
+    description: Cумма бонусов
+  creditLimit:
+    type: number
+    description: Лимит отгрузки
+  creditDays:
+    type: number
+    description: Отсрочка дней
+  debt:
+    type: number
+    description: Долг  
+  overdueDebt:
+    type: number
+    description: Просроченный долг
+  prepay:
+    type: number
+    description: Аванс

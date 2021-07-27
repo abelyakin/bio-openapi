@@ -1,0 +1,49 @@
+type: object
+description: Настройки пользователя
+properties:
+  ordersColumns:
+    type: array
+    description: Порядок и использование колонок на странице "Заказы"
+    items:
+      type: object
+      properties:
+        name: 
+          type: string
+          description: Техническое имя колонки (для программного обращения)
+        descr:
+          type: string
+          description: Наименование колонки
+        isUse:
+          type: boolean
+          description: Признак использования колонки
+  basket:
+    type: array
+    description: Массив для сохранения корзины пользователя
+    items:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Код товара
+        name:
+          type: string
+          description: Наименование товара
+        unit:
+          type: string
+          description: Единица измерения
+        count:
+          type: number
+          description: Количество товара
+        dilerPrice:
+          type: number
+          description: Дилерская цена
+        dilerCurrency:
+          type: string
+          description: Валюта цены
+
+
+
+
+
+
+

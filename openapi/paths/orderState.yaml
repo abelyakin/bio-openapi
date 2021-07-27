@@ -1,9 +1,9 @@
 post:
   tags:
     - Order
-  summary: Данные заказа клиента
-  description: Получение информации по определенному заказу
-  operationId: order  
+  summary: Состояние заказа клиента
+  description: Получение информации по состоянию заказу
+  operationId: orderState  
   requestBody:
     content:
       'application/json; charset=utf-8':
@@ -27,5 +27,5 @@ post:
       content:
         'application/json; charset=utf-8':
           schema:
-            $ref: './responses/order.yaml'          
+            $ref: './responses/orderState.yaml'
 
