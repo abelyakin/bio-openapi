@@ -1,0 +1,51 @@
+post:
+  tags:
+    - Order
+  summary: Печатные формы заказа
+  description: Получение печатных форм заказа
+  operationId: orderPrint  
+  requestBody:
+    content:
+      'application/json; charset=utf-8':
+        schema:          
+          type: object
+          properties:
+            login:
+              type: string
+            password:
+              type: string
+            link:
+              type: string
+              description: Ссылка на заказ клиента
+            print:
+              type: string
+              description: Имя печатной формы
+              enum:
+                - ORDER
+                - KP
+                - UPD
+            ext:
+              type: string
+              description: Расширение файла
+              enum:
+                - PDF
+                - XLSX
+          required:
+            - login
+            - password
+            - link
+            - print
+            - ext
+  responses:
+    '200':
+      description: OK
+      content:
+        'application/json; charset=utf-8':
+          schema:
+            type: object
+            properties:
+              file:
+                type: string
+                format: base64
+
+

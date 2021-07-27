@@ -1,67 +1,113 @@
 openapi: 3.0.2
 info:
   version: 1.0.0
-  title: BIO PORTAL API
+  title: BIO API
   contact:
     email: info@holdingbio.ru
     url: 'https://holdingbio.ru'
-  license:
-    name: Apache 2.0
-    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+  # license:
+  #   name: Apache 2.0
+  #   url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
   x-logo:
     url: 'https://holdingbio.ru/wp-content/uploads/2020/01/bio_logo-2.png'
   description: >
-    # Информация
+    # Общая информация
 
-    ...Описание тест...
+    BIO API (от англ. application programming interface – интерфейс программирования приложений) – это интерфейс взаимодействия с учетной системой Компании БИО, 
+    который дает возможность с помощью http-запросов получать и обрабатывать бизнес-данные:
+      - получение списка актуальных заказов и публикация новых
+      - получение данных по номенклатуре (остатки, цены)
+      - сверка взаиморасчетов с Компанией БИО
+      - управление бонусами
+      - и многое-многое другое :-)
 
-    [пример ссылки](https://holdingbio.ru).
-
-    # Протокол передачи данных
+    Сервис расположен здесь: [http://api.bioshop.ru:8030](http://api.bioshop.ru:8030).
+    Примером взаимодействия с API служит [Портал](http://api.bioshop.ru:8888/portal). Все данные, выводимые на портале, можно получить через API.
+    
+    ### Протокол передачи данных
     
     На текущий момент API поддерживает HTTP протокол. HTTPS протокол будет внедрен в ближайшее время.
 
-    # Формат запросов
+    ### Формат запросов
 
     По умолчанию в API используются POST-запросы.
 
-    # Аутентификация
+    ### Аутентификация
     
     Все запросы требуют логин и пароль пользователя для аутентификации.
 
-externalDocs:
-  description: Хочу на портал
-  url: 'http://api.bioshop.ru:8888/portal'
+# externalDocs:
+#   description: Хочу на портал
+#   url: 'http://api.bioshop.ru:8888/portal'
 tags:
+  - name: Auth
+    description: Аутентификация пользователя
+  - name: Bonuses
+    description: Бонусы клиента
+  - name: Client settlements
+    description: Расчеты с клиентом
+  - name: Finance
+    description: Финансовые показатели (итоги)
   - name: Order
     description: Информация по выбранному заказу
   - name: Orders
-    description: Список всех заказов клиента
-  - name: Bonuses
-    description: Бонусы клиента
+    description: Список заказов клиента
 servers:
   - url: 'http://api.bioshop.ru:8030'
 paths:
-  /order:
-    $ref: paths/order.yaml
-  /orders:
-    $ref: paths/orders.yaml
+  /auth:
+    $ref: paths/auth.yaml
   /bonuses:
     $ref: paths/bonuses.yaml
-components:
-  securitySchemes:
-    main_auth:
-      type: oauth2
-      flows:
-        implicit:
-          authorizationUrl: 'http://example.com/api/oauth/dialog'
-          scopes:
-            'read:users': read users info
-            'write:users': modify or remove users
-    api_key:
-      type: apiKey
-      in: header
-      name: api_key
-    basic_auth:
-      type: http
-      scheme: basic
+  /clientsettlements:
+    $ref: paths/clientsettlements.yaml
+  /finance:
+    $ref: paths/finance.yaml    
+  /order:
+    $ref: paths/order.yaml
+  /order/state:
+    $ref: paths/orderState.yaml
+  /order/print:
+    $ref: paths/orderPrint.yaml
+  /orders:
+    $ref: paths/orders.yaml  
+
+# components:
+#   schemas:
+#     GeneralError:
+#       type: object
+#       properties:
+#         code:
+#           type: integer
+#           format: int32
+#         message:
+#           type: string
+#   responses:
+#     NotFound:
+#       description: Entity not found.
+#     IllegalInput:
+#       description: Illegal input for operation.
+#     GeneralError:
+#       description: General Error
+#       content:
+#         application/json:
+#           schema:
+#             $ref: '#/components/schemas/GeneralError'
+
+# components:
+#   securitySchemes:
+#     main_auth:
+#       type: oauth2
+#       flows:
+#         implicit:
+#           authorizationUrl: 'http://example.com/api/oauth/dialog'
+#           scopes:
+#             'read:users': read users info
+#             'write:users': modify or remove users
+#     api_key:
+#       type: apiKey
+#       in: header
+#       name: api_key
+#     basic_auth:
+#       type: http
+#       scheme: basic

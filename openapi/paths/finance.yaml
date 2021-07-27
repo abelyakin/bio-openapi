@@ -1,0 +1,27 @@
+post:
+  tags:
+    - Finance
+  summary: Финансовые показатели
+  description: Получение итоговых финансовых показателей в рамках взаимодействия клиента с Компанией БИО
+  operationId: finance
+  requestBody:
+    required: true
+    content: 
+      'application/json; charset=utf-8':
+        schema:
+          type: object
+          properties:
+            login:
+              type: string
+            password:
+              type: string
+          required:
+            - login
+            - password    
+  responses:
+    '200':
+      description: OK
+      content:
+        'application/json; charset=utf-8':
+          schema:
+            $ref: './responses/finance.yaml'

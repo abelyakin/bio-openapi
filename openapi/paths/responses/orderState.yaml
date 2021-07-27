@@ -1,0 +1,69 @@
+type: object
+properties:
+  firm:
+    type: string
+    description: Организация
+  company:
+    type: string
+    description: Юридическое лицо
+  docSum:
+    type: string
+    description: Сумма документа
+  storage:
+    type: string
+    description: Склад
+  paymentSum:
+    type: string
+    description: Сумма оплаты
+  paymentPercent:
+    type: string
+    description: Процент оплаты
+  shipment:
+    type: object
+    description: Ближайшая заявка на отгрузку
+    properties:
+      doc:
+        type: string
+        description: Номер/дата заявки      
+      sum:
+        type: number
+        description: Сумма документа
+      shippingDate:
+        type: string
+        format: dd.MM.yyyy
+        description: Желаемая дата отгрузки
+  products:
+    type: array
+    description: Список товаров
+    items:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Код товара
+        name:
+          type: string
+          description: Наименование товара
+        discharged:
+          type: number
+          description: Выписано
+        inReserve:
+          type: number
+          description: В резерве
+        reserveDays:
+          type: number
+          description: Дней в резерве
+        inShipment:
+          type: number
+          description: В заявке на отгрузку
+        ordered:
+          type: number
+          description: Заказано
+        deliveryDate:
+          type: number
+          description: Дата доставки
+        notOrdered:
+          type: number
+          description: Не заказано
+        
+  

@@ -1,0 +1,38 @@
+post:
+  tags:
+    - Auth
+  summary: Данные аутентификации пользователя
+  description: Получение глобальной информации по личным настройкам пользователя, настройкам клиента и его юридических лиц
+  operationId: auth
+  requestBody:
+    required: true
+    content: 
+      'application/json; charset=utf-8':
+        schema:
+          type: object
+          properties:
+            login:
+              type: string
+            password:
+              type: string
+          required:
+            - login
+            - password    
+  responses:
+    '200':
+      description: OK
+      content:
+        'application/json; charset=utf-8':
+          schema:
+            $ref: './responses/auth.yaml'
+    '401':
+      description: Не пройдена аутентификация
+      content:
+        'application/json; charset=utf-8':
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                default: Некорректные логин/пароль
+            

@@ -1,0 +1,85 @@
+type: object
+properties:
+  login:
+    type: string
+  password:
+    type: string
+  fio:
+    type: string  
+    description: ФИО пользователя (полностью)
+  initials:
+    type: string  
+    description: ФИО пользователя (инициалы)
+  gender:
+    type: string  
+    description: Пол
+  birthday:
+    type: string
+    format: dd.MM.yyyy  
+    description: Дата рождения
+  phone:
+    type: string  
+    description: Список телефонов
+  client:
+    type: object
+    description: Информация о клиенте
+    properties:
+      uid:
+        type: string
+        format:  uuid
+        description: Уникальный идентификатор клиента
+      fullname:
+        type: string  
+        description: Публичное наименование клиента
+      manager:
+        type: string  
+        description: Основной менеджер БИО, к которому относится клиент
+  companies:
+    type: array
+    description: Информация о юридических лицах клиента
+    items:
+      type: object      
+      properties:
+        uid:
+          type: string
+          format:  uuid
+          description: Уникальный идентификатор юридического лица
+        fullname:
+          type: string  
+          description: Сокращенное юр. наименование
+        inn:
+          type: string  
+          description: ИНН
+        kpp:
+          type: string  
+          description: КПП
+  settings:
+    $ref: '../../components/schemas/Settings.yaml'
+  rates:
+    type: array
+    description: Курсы валют
+    items:
+      type: object      
+      properties:
+        currency:
+          type: string
+          description: Валюта
+        rate:
+          type: number
+          description: Курс
+        frequency:
+          type: number
+          description: Кратность
+
+          
+
+
+
+
+
+
+
+
+
+
+
