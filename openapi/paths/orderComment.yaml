@@ -1,0 +1,36 @@
+post:
+  tags:
+    - Order
+  summary: Комментарий заказа
+  description: Установка комментария пользователя к заказу
+  operationId: orderComment
+  requestBody:
+    content:
+      'application/json; charset=utf-8':
+        schema:          
+          type: object
+          properties:
+            login:
+              type: string
+            password:
+              type: string
+            link:
+              type: string
+              description: Ссылка на заказ клиента            
+          required:
+            - login
+            - password
+            - link            
+  responses:
+    '200':
+      description: OK
+      content:
+        'application/json; charset=utf-8':
+          schema:
+            type: object
+            properties:
+              result:
+                type: ok                
+                description: Информирование об успешной установке комментария
+
+

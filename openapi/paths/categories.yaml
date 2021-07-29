@@ -1,0 +1,35 @@
+post:
+  tags:
+    - Categories
+  summary: Категории товаров
+  description: Получение общего списка категорий товаров (видов номенклатуры) 
+  operationId: categories
+  requestBody:
+    content:
+      'application/json; charset=utf-8':
+        schema:          
+          type: object
+          properties:
+            login:
+              type: string
+            password:
+              type: string
+            folderCode:
+              type: string              
+              enum:
+                - '165729'
+                - '6077'
+                - '6056'
+              description: 'Отбор на группу товаров: Оборудование (165729), Посуда (6077), Запчасти (6056)'
+          required:
+            - login
+            - password            
+  responses:
+    '200':
+      description: OK
+      content:
+        'application/json; charset=utf-8':
+          schema:
+            $ref: './responses/categories.yaml'
+
+

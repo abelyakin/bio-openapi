@@ -13,7 +13,7 @@ info:
   description: >
     # Общая информация
 
-    BIO API (от англ. application programming interface – интерфейс программирования приложений) – это интерфейс взаимодействия с учетной системой Компании БИО, 
+    BIO API (Application Programming Interface – интерфейс программирования приложений) – это интерфейс взаимодействия с учетной системой Компании БИО, 
     который дает возможность с помощью http-запросов получать и обрабатывать бизнес-данные:
       - получение списка актуальных заказов и публикация новых
       - получение данных по номенклатуре (остатки, цены)
@@ -44,14 +44,24 @@ tags:
     description: Аутентификация пользователя
   - name: Bonuses
     description: Бонусы клиента
+  - name: Categories
+    description: Категории товаров
+  - name: Category
+    description: Категория товара (основные данные)
   - name: Client settlements
     description: Расчеты с клиентом
   - name: Finance
     description: Финансовые показатели (итоги)
   - name: Order
-    description: Информация по выбранному заказу
+    description: Информация по выбранному заказу клиента
   - name: Orders
-    description: Список заказов клиента
+    description: Список заказов клиента  
+  - name: Product
+    description: Информация по выбранному товару
+  - name: Products
+    description: Список товаров  
+  - name: Settings
+    description: Настройки пользователя
 servers:
   - url: 'http://api.bioshop.ru:8030'
 paths:
@@ -59,19 +69,40 @@ paths:
     $ref: paths/auth.yaml
   /bonuses:
     $ref: paths/bonuses.yaml
+  /categories:
+    $ref: paths/categories.yaml
+  /category:
+    $ref: paths/category.yaml
   /clientsettlements:
     $ref: paths/clientsettlements.yaml
   /finance:
     $ref: paths/finance.yaml    
   /order:
     $ref: paths/order.yaml
+  /order/print:
+    $ref: paths/orderPrint.yaml 
+  /order/comment:
+    $ref: paths/orderComment.yaml
   /order/state:
     $ref: paths/orderState.yaml
-  /order/print:
-    $ref: paths/orderPrint.yaml
+  /order/new:
+    $ref: paths/orderNew.yaml
   /orders:
-    $ref: paths/orders.yaml  
-
+    $ref: paths/orders.yaml
+  /product:
+    $ref: paths/product.yaml
+  /product/file:
+    $ref: paths/productFile.yaml
+  /products:
+    $ref: paths/products.yaml
+  /products/sale:
+    $ref: paths/productsSale.yaml
+  /products/markdown:
+    $ref: paths/productsMarkdown.yaml
+  /products/filter:
+    $ref: paths/productsFilter.yaml
+  /settings:
+    $ref: paths/settings.yaml
 # components:
 #   schemas:
 #     GeneralError:

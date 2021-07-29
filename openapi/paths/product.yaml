@@ -1,9 +1,9 @@
 post:
   tags:
-    - Order
+    - Product
   summary: Данные по товару
-  description: Получение данных по выбранному заказу
-  operationId: order  
+  description: Получение данных по выбранному товару
+  operationId: product
   requestBody:
     content:
       'application/json; charset=utf-8':
@@ -14,18 +14,19 @@ post:
               type: string
             password:
               type: string
-            link:
+            code:
               type: string
-              description: Ссылка на заказ клиента
+              description: Код товара
           required:
             - login
-            - password
-            - link
+            - password            
+            - code
   responses:
     '200':
       description: OK
       content:
         'application/json; charset=utf-8':
-          schema:
-            $ref: './responses/order.yaml'          
+          schema:            
+            $ref: '../components/schemas/Product.yaml'
+               
 

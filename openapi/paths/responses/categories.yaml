@@ -1,0 +1,30 @@
+type: array
+items:
+  type: object
+  properties:
+    id:
+      type: string
+      format: uuid
+      description: Уникальный идентификатор группы категорий
+    name:
+      type: string
+      description: Наименование группы категорий
+    categories:
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            type: string
+            format: uuid
+            description: Уникальный идентификатор категории
+          name:
+            type: string
+            description: Наименование категории
+          products:
+            type: number
+            description: Количество позиций номенклатуры в категории
+
+
+
+

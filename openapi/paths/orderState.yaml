@@ -1,7 +1,7 @@
 post:
   tags:
     - Order
-  summary: Состояние заказа клиента
+  summary: Состояние заказа
   description: Получение информации по состоянию заказу
   operationId: orderState  
   requestBody:

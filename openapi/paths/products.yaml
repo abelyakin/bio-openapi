@@ -1,0 +1,60 @@
+post:
+  tags:
+    - Products
+  summary: Список товаров
+  description: Получение списка товаров заданной категории
+  operationId: products
+  requestBody:
+    content:
+      'application/json; charset=utf-8':
+        schema:          
+          type: object
+          properties:
+            login:
+              type: string
+            password:
+              type: string
+            categoryId:
+              type: string
+              format: uuid
+              description: Уникальный идентификатор категории товара
+            filter:
+              type: object
+              description: Дополнительный отбор
+              properties:
+                brand:
+                  type: array
+                  description: Массив уникальных идентификаторов брендов
+                  items:
+                    type: string
+                    format: uuid
+                country:
+                  type: array
+                  description: Массив уникальных идентификаторов стран
+                  items:
+                    type: string
+                    format: uuid
+                status:
+                  type: string
+                  description: 'Отбор на статус товара: уценка или распродажа'
+                  enum:
+                    - sale
+                    - markdown
+                inAccess:
+                  type: boolean
+                  description: Только товар на свободном остатке
+          required:
+            - login
+            - password            
+            - categoryId
+  responses:
+    '200':
+      description: OK
+      content:
+        'application/json; charset=utf-8':
+          schema:
+            type: array
+            items:
+              $ref: '../components/schemas/ProductInList.yaml'
+               
+

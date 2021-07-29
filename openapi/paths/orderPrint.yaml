@@ -30,6 +30,9 @@ post:
               enum:
                 - PDF
                 - XLSX
+            number:
+              type: string
+              description: Номер реализации (необходим дял печать УПД)
           required:
             - login
             - password
@@ -47,5 +50,6 @@ post:
               file:
                 type: string
                 format: base64
+                description: Сформированная печатная форма
 
 

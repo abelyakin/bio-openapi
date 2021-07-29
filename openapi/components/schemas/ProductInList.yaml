@@ -1,0 +1,80 @@
+type: object
+properties:
+  code:
+    type: string
+    description: Код товара
+  name:
+    type: string
+    description: Наименование товара
+  fullName:
+    type: string
+    description: Полное наименование товара
+  category:
+    type: string
+    description: Наименование категории
+  brand:
+    type: string
+    description: Марка (бренд)
+  model:
+    type: string
+    description: Модель
+  country:
+    type: string
+    description: Страна
+  unit:
+    type: string
+    description: Единица измерения
+  isOrdered:
+    type: boolean
+    description: Позиция является заказной
+  isSale:
+    type: boolean
+    description: Позиция участвует в распродаже
+  isMarkdown:
+    type: boolean
+    description: Позиция участвует в уценке
+  inStock:
+    type: number
+    description: Количество в наличии на складе (свободно + в резерве)
+  inReserve:
+    type: number
+    description: Количество в резерве на складе
+  inAccess:
+    type: number
+    description: Количество свободно на складе
+  inWait:
+    type: number
+    description: Количество в пути
+  receiptDate:
+    type: string
+    format: 'dd.MM.yyyy'
+    description: Дата поставки на склад
+  dilerPrice:
+    type: number
+    description: Дилерская цена
+  dilerCurrency:
+    type: string    
+    description: Валюта дилерской цены
+  dilerUnit:
+    type: string    
+    description: Дилерская единица измерения (если отсутствует, совпадает с полем 'unit')
+  price:
+    type: number
+    description: Розничная цена
+  priceCurrency:
+    type: string    
+    description: Валюта розничной цены
+  priceUnit:
+    type: string    
+    description: Розничная единица измерения (если отсутствует, совпадает с полем 'unit')
+  img:
+    type: string    
+    description: Ссылка на основную картинку товара
+
+
+
+
+  
+
+
+
