@@ -1,0 +1,130 @@
+type: object
+properties:
+  code:
+    type: string
+    description: Код товара
+  name:
+    type: string
+    description: Наименование товара
+  fullName:
+    type: string
+    description: Полное наименование товара
+  vendorCode:
+    type: string
+    description: Артикул
+  category:
+    type: string
+    description: Наименование категории
+  brand:
+    type: string
+    description: Марка (бренд)
+  model:
+    type: string
+    description: Модель
+  country:
+    type: string
+    description: Страна
+  unit:
+    type: string
+    description: Единица измерения
+  isOrdered:
+    type: boolean
+    description: Позиция является заказной
+  isSale:
+    type: boolean
+    description: Позиция участвует в распродаже
+  isMarkdown:
+    type: boolean
+    description: Позиция участвует в уценке
+  originalCode:
+    type: string
+    description: Код оригинального товара (для уценки и распродажи)
+  description:
+    type: string
+    description: Описание товара
+  sizeNet:
+    type: string
+    description: Габариты (Д*Ш*В)
+  sizeGross:
+    type: string
+    description: Габариты в упаковке (Д*Ш*В)
+  weightNet:
+    type: number
+    description: Вес
+  weightGross:
+    type: number
+    description: Вес в упаковке
+  weightUnit:
+    type: string
+    description: Единица измерения веса
+  deliveryTime:
+    type: number
+    description: Срок поставки (дней)
+  warranty:
+    type: number
+    description: Гарантия (кол-во месяцев)
+  img:
+    type: string    
+    description: Ссылка на основную картинку товара
+  inStock:
+    type: number
+    description: Количество в наличии на складе (свободно + в резерве)
+  inReserve:
+    type: number
+    description: Количество в резерве на складе
+  inAccess:
+    type: number
+    description: Количество свободно на складе
+  inWait:
+    type: number
+    description: Количество в пути
+  receiptDate:
+    type: string
+    format: 'dd.MM.yyyy'
+    description: Дата поставки на склад  
+  dilerPrice:
+    type: number
+    description: Дилерская цена
+  dilerCurrency:
+    type: string    
+    description: Валюта дилерской цены
+  dilerUnit:
+    type: string    
+    description: Дилерская единица измерения (если отсутствует, совпадает с полем 'unit')
+  price:
+    type: number
+    description: Розничная цена
+  priceCurrency:
+    type: string    
+    description: Валюта розничной цены
+  priceUnit:
+    type: string    
+    description: Розничная единица измерения (если отсутствует, совпадает с полем 'unit')
+  secondaryProps:
+    type: array
+    description: Дополнительные характеристики товара
+    items:
+      type: object
+      properties:
+        prop:
+          type: string    
+          description: Характеристика
+        value:
+          type: string    
+          description: Значение характеристики
+  files:
+    type: array
+    description: Дополнительные файлы
+    items:
+      type: object
+      properties:
+        name:
+          type: string    
+          description: Наименование файла (вкл. расширение)
+        ref:
+          type: string    
+          format: uuid
+          description: Уникальный идентификатор файла
+        descr:
+          type: string    
+          description: Описание файла        

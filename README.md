@@ -1,5 +1,5 @@
 # bio-api OpenAPI Definition
-Временный адрес документации [тут](https://abelyakin.github.io/bio-api/).
+Временный адрес документации [тут](https://abelyakin.github.io/bio-openapi/).
 
 ## Working on your OpenAPI Definition
 

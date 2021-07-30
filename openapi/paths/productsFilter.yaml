@@ -1,0 +1,68 @@
+post:
+  tags:
+    - Products
+  summary: Доступные фильтры
+  description: Получение фильтров для товаров заданной категории
+  operationId: productsFilter
+  requestBody:
+    content:
+      'application/json; charset=utf-8':
+        schema:          
+          type: object
+          properties:
+            login:
+              type: string
+            password:
+              type: string
+            categoryId:
+              type: string
+              format: uuid
+              description: Уникальный идентификатор категории товара
+            brand:
+              type: boolean
+              description: Если необходим список доступных брендов
+            country:
+              type: boolean
+              description: Если необходим список доступных стран
+          required:
+            - login
+            - password            
+            - categoryId
+  responses:
+    '200':
+      description: OK
+      content:
+        'application/json; charset=utf-8':
+          schema:
+            type: object
+            properties:
+              brand:
+                type: array
+                description: Список доступных брендов
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      format: uuid 
+                      description: Уникальный идентификатор бренда
+                    name:
+                      type: string                      
+                      description: Наименование бренда
+              country:
+                type: array
+                description: Список доступных стран
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      format: uuid 
+                      description: Уникальный идентификатор страны
+                    name:
+                      type: string                      
+                      description: Наименование страны
+
+
+               
+

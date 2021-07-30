@@ -1,0 +1,54 @@
+post:
+  tags:
+    - Category
+  summary: Категория товаров
+  description: Получение данных по категории товара (аналогично запросу Categories, но для отдельной категории товара)
+  operationId: category
+  requestBody:
+    content:
+      'application/json; charset=utf-8':
+        schema:          
+          type: object
+          properties:
+            login:
+              type: string
+            password:
+              type: string
+            categoryId:
+              type: string              
+              description: Уникальный идентификатор категории товара
+          required:
+            - login
+            - password            
+            - categoryId
+  responses:
+    '200':
+      description: OK
+      content:
+        'application/json; charset=utf-8':
+          schema:
+            type: object
+            properties:
+              categoriesFolder:
+                type: string     
+                description: Наименование группы категорий
+              currentCategory:
+                type: string
+                description: Наименование выбранной категории
+              categories:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      format: uuid
+                      description: Уникальный идентификатор категории
+                    name:
+                      type: string
+                      description: Наименование категории
+                    products:
+                      type: number
+                      description: Количество позиций номенклатуры в категории
+
+

@@ -1,0 +1,33 @@
+post:
+  tags:
+    - Products
+  summary: Список товаров (распродажа)
+  description: Получение списка товаров в распродаже
+  operationId: productsSale
+  requestBody:
+    content:
+      'application/json; charset=utf-8':
+        schema:          
+          type: object
+          properties:
+            login:
+              type: string
+            password:
+              type: string
+            download:
+              type: boolean
+              description: Признак формирования списка товаров в XLSX-формате
+          required:
+            - login
+            - password            
+  responses:
+    '200':
+      description: OK
+      content:
+        'application/json; charset=utf-8':
+          schema:
+            type: array
+            items:
+              $ref: '../components/schemas/ProductInList.yaml'
+               
+

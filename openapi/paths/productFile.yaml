@@ -1,0 +1,40 @@
+post:
+  tags:
+    - Product
+  summary: Файлы товара
+  description: Получение дополнительных файлов по выбранному товару (спецификация, взрыв-схема, инструкция и т.п.)
+  operationId: productFile
+  requestBody:
+    content:
+      'application/json; charset=utf-8':
+        schema:          
+          type: object
+          properties:
+            login:
+              type: string
+            password:
+              type: string
+            ref:
+              type: string
+              format: uuid
+              description: Уникальный идентификатор файла
+          required:
+            - login
+            - password            
+            - code
+  responses:
+    '200':
+      description: OK
+      content:
+        'application/json; charset=utf-8':
+          schema:            
+            type: object
+            properties:
+              file:
+                type: string
+                format: base64
+                description: Двоичные данные файла в формате 'base64'
+
+
+               
+

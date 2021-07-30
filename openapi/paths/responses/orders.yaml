@@ -54,6 +54,13 @@ properties:
         isReclamation:
           type: boolean
           description: признак 'Это рекламация'
+        isDraft:
+          type: boolean
+          description: признак 'Это черновик'
+        comment:
+          type: string
+          description: Комментарий
+
 
 
 

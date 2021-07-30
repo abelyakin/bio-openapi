@@ -1,0 +1,56 @@
+post:
+  tags:
+    - Order
+  summary: Новый заказ
+  description: Создание нового заказа
+  operationId: orderNew
+  requestBody:
+    content:
+      'application/json; charset=utf-8':
+        schema:          
+          type: object
+          properties:
+            login:
+              type: string
+            password:
+              type: string
+            company:
+              type: string
+              format: uuid
+              description: Уникальный идентификатор юридического лица
+            products:
+              type: array
+              description: Массив заказываемых товаров
+              items:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    description: Код товара
+                  count:
+                    type: number
+                    description: Количество товара
+            comment:
+              type: string              
+              description: Комментарий пользователя к заказу
+          required:
+            - login
+            - password
+            - company            
+            - products
+  responses:
+    '200':
+      description: OK
+      content:
+        'application/json; charset=utf-8':
+          schema:
+            type: object
+            properties:
+              storeOrder:
+                type: string                
+                description: Номер заказа на складкой товар (если такой товар присутствовал)
+              waitOrder:
+                type: string                
+                description: Номер заказа на заказной товар (если такой товар присутствовал)
+
+
