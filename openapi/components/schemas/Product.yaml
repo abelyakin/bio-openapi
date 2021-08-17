@@ -87,10 +87,13 @@ properties:
     description: Дилерская цена
   dilerCurrency:
     type: string    
-    description: Валюта дилерской цены
+    description: Валюта дилерской цены  
   dilerUnit:
     type: string    
     description: Дилерская единица измерения (если отсутствует, совпадает с полем 'unit')
+  dilerPriceRUB:
+    type: number
+    description: Дилерская цена в рублях
   price:
     type: number
     description: Розничная цена
@@ -100,6 +103,9 @@ properties:
   priceUnit:
     type: string    
     description: Розничная единица измерения (если отсутствует, совпадает с полем 'unit')
+  priceRUB:
+    type: number
+    description: Розничная цена в рублях
   secondaryProps:
     type: array
     description: Дополнительные характеристики товара
