@@ -1,7 +1,7 @@
 post:
   tags:
     - Order
-  summary: Данные по товару
+  summary: Данные по заказу
   description: Получение данных по выбранному заказу
   operationId: order  
   requestBody:
