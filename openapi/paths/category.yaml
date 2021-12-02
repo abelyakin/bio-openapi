@@ -2,7 +2,7 @@ post:
   tags:
     - Category
   summary: Категория товаров
-  description: Получение данных по категории товара (аналогично запросу Categories, но для отдельной категории товара)
+  description: Получение данных по категории товара (аналогично запросу Categories, но для отдельной категории)
   operationId: category
   requestBody:
     content:
@@ -31,11 +31,12 @@ post:
             properties:
               categoriesFolder:
                 type: string     
-                description: Наименование группы категорий
+                description: Наименование родителя категории
               currentCategory:
                 type: string
                 description: Наименование выбранной категории
               categories:
+                description: Все категории выбранного родителя
                 type: array
                 items:
                   type: object
@@ -49,6 +50,6 @@ post:
                       description: Наименование категории
                     products:
                       type: number
-                      description: Количество позиций номенклатуры в категории
+                      description: Количество товаров в категории
 
 

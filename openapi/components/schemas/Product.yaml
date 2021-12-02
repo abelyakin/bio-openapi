@@ -15,6 +15,9 @@ properties:
   category:
     type: string
     description: Наименование категории
+  categorySlug:
+    type: string
+    description: Наименование категории латиницей
   brand:
     type: string
     description: Марка (бренд)
@@ -63,6 +66,9 @@ properties:
   warranty:
     type: number
     description: Гарантия (кол-во месяцев)
+  barcode:
+    type: string
+    description: Штрихкод EAN13
   img:
     type: string    
     description: Ссылка на основную картинку товара
@@ -131,6 +137,15 @@ properties:
           type: string    
           format: uuid
           description: Уникальный идентификатор файла
+        type:
+          type: string    
+          description: Тип файла
+          enum:
+            - Изображение
+            - Взрыв-схема
+            - Документация
+            - Сертификат
+            - Прочее
         descr:
           type: string    
           description: Описание файла        

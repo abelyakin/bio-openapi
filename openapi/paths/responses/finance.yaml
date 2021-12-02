@@ -8,7 +8,7 @@ properties:
     description: Лимит отгрузки
   creditDays:
     type: number
-    description: Отсрочка дней
+    description: Отсрочка (дней)
   debt:
     type: number
     description: Долг  

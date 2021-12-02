@@ -5,7 +5,7 @@ properties:
     description: Номер заказа
   date:
     type: string
-    format: dd.MM.yyyy HH:mm
+    format: yyyy-MM-ddTHH:mm:ss
     description: Дата заказа
   firm:
     type: string
@@ -46,9 +46,9 @@ properties:
   completePercent:
     type: number
     description: Процент комплектации
-  isDraft:
+  isNotApproved:
     type: boolean
-    description: Признак 'Это черновик заказа'
+    description: Признак 'Заказ еще на согласовании'
   activeShipmentDoc:
     type: object
     description: Ближайшая заявка на отгрузку
@@ -81,14 +81,17 @@ properties:
         name:
           type: string
           description: Наименование товара
+        categorySlug:
+          type: string
+          description: Категория товара латиницей
         unit:
           type: string
           description: Единица измерения
         quantity:
-          type: string
+          type: number
           description: Количество
         price:
-          type: string
+          type: number
           description: Цена
         tax:
           type: string
@@ -98,14 +101,26 @@ properties:
             - 10%
             - Без НДС
         taxSum:
-          type: string
+          type: number
           description: Сумма НДС
         discont:
-            type: string
+            type: number
             description: Примененная скидка
         sum:
-          type: string
+          type: number
           description: Итоговая сумма с НДС
+        lineId:
+          type: number
+          description: Номер строки
+        analogLineId:
+          type: array
+          description: Строки с той же позицией
+          items:
+            type: number
+        status:
+          type: string
+          description: Статус товара (отгружен, заказан, зарезервирован)
+
   upd:
     type: array
     description: Список реализаций к заказу

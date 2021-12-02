@@ -1,13 +1,10 @@
 openapi: 3.0.2
 info:
-  version: 1.0.0
+  version: 2.0.0
   title: BIO API
   contact:
     email: info@holdingbio.ru
     url: 'https://holdingbio.ru'
-  # license:
-  #   name: Apache 2.0
-  #   url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
   x-logo:
     url: 'https://holdingbio.ru/wp-content/uploads/2020/01/bio_logo-2.png'
   description: >
@@ -22,7 +19,7 @@ info:
       - и многое-многое другое :-)
 
     Сервис расположен здесь: [http://api.bioshop.ru:8030](http://api.bioshop.ru:8030).
-    Примером взаимодействия с API служит [Портал](http://api.bioshop.ru:8888/portal). Все данные, выводимые на портале, можно получить через API.
+    Примером взаимодействия с API служит [Портал](https://portal.holdingbio.ru/). Все данные, выводимые на портале, можно получить через API.
     
     ### Протокол передачи данных
     
@@ -34,11 +31,18 @@ info:
 
     ### Аутентификация
     
-    Все запросы требуют логин и пароль пользователя для аутентификации.
+    На текущий момент все запросы требуют логин и пароль пользователя для аутентификации.
 
-# externalDocs:
-#   description: Хочу на портал
-#   url: 'http://api.bioshop.ru:8888/portal'
+    # Пример использования
+
+    Рекомедуется использовать следующий алгоритм:
+      - Получить список категорий (запрос /categories)
+      - Обходя список категорий, получить id конкретной категории и выполнить запрос /products для получения списка товаров этой категории
+      - Если необходимы более детальные данные товара, то можно по коду товара получить все данные (/product) или только часть основных данных (/products/details)
+      - Запрос /product оперирует только одним товаров, но возвращает все возможные данные по товару. Запрос /products/details можете принимать массив кодов, 
+        но возращает только необходимый минимум (цены, остатки) 
+      - Для автоматического создания заказа необходимо выполнить запрос /order/new, передав список кодов товаров и количество
+
 tags:
   - name: Auth
     description: Аутентификация пользователя
@@ -95,12 +99,12 @@ paths:
     $ref: paths/productFile.yaml
   /products:
     $ref: paths/products.yaml
+  /products/details:
+    $ref: paths/productsDetails.yaml  
   /products/sale:
     $ref: paths/productsSale.yaml
   /products/markdown:
     $ref: paths/productsMarkdown.yaml
-  /products/filter:
-    $ref: paths/productsFilter.yaml
   /settings:
     $ref: paths/settings.yaml
 # components:

@@ -2,21 +2,12 @@ type: object
 properties:
   login:
     type: string
-  password:
-    type: string
   fio:
     type: string  
     description: ФИО пользователя (полностью)
   initials:
     type: string  
     description: ФИО пользователя (инициалы)
-  gender:
-    type: string  
-    description: Пол
-  birthday:
-    type: string
-    format: dd.MM.yyyy  
-    description: Дата рождения
   phone:
     type: string  
     description: Список телефонов
@@ -53,6 +44,14 @@ properties:
         kpp:
           type: string  
           description: КПП
+        status:
+            type: string  
+            enum:
+                - 'active'
+                - 'closed'
+                - 'emptyINNKPP'
+                - 'undefined'
+            description: Состояние ЮЛ по данным ФНС
   settings:
     $ref: '../../components/schemas/Settings.yaml'
   rates:

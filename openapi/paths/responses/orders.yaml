@@ -19,38 +19,51 @@ properties:
       properties:
         number:
           type: string
-          description: номер заказа
+          description: Номер заказа
         date:
           type: string
-          format: dd.MM.yy ЧЧ:мм
-          description: дата заказа
+          format: yyyy-MM-ddTHH:mm:ss
+          description: Дата заказа
         link:
           type: string
-          description: ссылка на заказ
+          description: Ссылка на заказ
         company:
           type: string      
-          description: контрагент
+          description: Контрагент
         contactPerson:
           type: string
-          description: контактное лицо
+          description: Контактное лицо
         sum:
           type: number
-          description: сумма документа
+          description: Сумма заказа
         currency:
           type: string
-          description: валюта
+          description: Валюта
         paymentPercent:
           type: number
-          description: процент оплаты
+          description: Процент оплаты
         shipmentPercent:
           type: number
-          description: процент отгрузки
+          description: Процент отгрузки
         completePercent:
           type: number
-          description: процент комплектации
+          description: Процент комплектации
+        paymentSum:
+          type: number
+          description: Сумма оплаты
+        shipmentSum:
+          type: number
+          description: Сумма отгрузки
+        completeSum:
+          type: number
+          description: Сумма комплектации
         state:
           type: string
           description: состояние заказа
+          enum:
+            - inwork
+            - finished
+            - notApproved
         isReclamation:
           type: boolean
           description: признак 'Это рекламация'
@@ -60,6 +73,24 @@ properties:
         comment:
           type: string
           description: Комментарий
+        upd:
+          type: array
+          description: Документы реализаций
+          items:
+            type: object
+            properties:
+              number:
+                type: string
+                description: Номер реализации
+              sum:
+                type: number
+                description: Сумма реализации
+              currency:
+                type: string
+                description: Валюта 
+              
+
+
 
 
 

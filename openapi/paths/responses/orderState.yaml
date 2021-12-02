@@ -7,16 +7,16 @@ properties:
     type: string
     description: Юридическое лицо
   docSum:
-    type: string
+    type: number
     description: Сумма документа
   storage:
     type: string
     description: Склад
   paymentSum:
-    type: string
+    type: number
     description: Сумма оплаты
   paymentPercent:
-    type: string
+    type: number
     description: Процент оплаты
   shipment:
     type: object

@@ -1,0 +1,61 @@
+post:
+  tags:
+    - Products
+  summary: Детализация товаров
+  description: Получение детальной информации по коду или массиву кодов товаров
+  operationId: productsDetails
+  requestBody:
+    content:
+      'application/json; charset=utf-8':
+        schema:          
+          type: object
+          properties:
+            login:
+              type: string
+            password:
+              type: string
+            code:
+              type: string | array<string>
+              description: Код товара (или массив кодов товаров)
+          required:
+            - login
+            - password            
+            - code
+  responses:
+    '200':
+      description: OK
+      content:
+        'application/json; charset=utf-8':
+          schema:            
+            type: array
+            items:
+              type: object
+              properties:
+                code:
+                  type: string
+                  description: Код товара
+                inAccess:
+                  type: number
+                  description: Количество свободно на складе
+                inWait:
+                  type: number
+                  description: Количество в пути
+                receiptDate:
+                  type: string
+                  format: yyyy-MM-ddTHH:mm:ss
+                  description: Дата поставки на склад
+                dilerPrice:
+                  type: number
+                  description: Дилерская цена
+                dilerCurrency:
+                  type: string    
+                  description: Валюта дилерской цены
+                dilerUnit:
+                  type: string    
+                  description: Единица измерения дилерской цены
+                dilerPriceRUB:
+                  type: number
+                  description: Дилерская цена в рублях
+
+               
+

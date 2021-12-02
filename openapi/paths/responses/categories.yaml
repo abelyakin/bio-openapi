@@ -5,10 +5,13 @@ items:
     id:
       type: string
       format: uuid
-      description: Уникальный идентификатор группы категорий
+      description: Уникальный идентификатор родителя категорий
     name:
       type: string
-      description: Наименование группы категорий
+      description: Наименование родителя категорий
+    slug:
+      type: string
+      description: Наименование родителя категорий латиницей
     categories:
       type: array
       items:
@@ -21,9 +24,12 @@ items:
           name:
             type: string
             description: Наименование категории
+          slug:
+            type: string
+            description: Наименование категории латиницей
           products:
             type: number
-            description: Количество позиций номенклатуры в категории
+            description: Количество товаров в категории
 
 
 

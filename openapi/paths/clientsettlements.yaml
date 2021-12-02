@@ -17,11 +17,11 @@ post:
               type: string
             startDate:
               type: string
-              format: yyyy-MM-dd | yyyyMMdd
+              format: yyyyMMdd | yyyy-MM-dd
               description: Начало периода
             endDate:
               type: string
-              format: yyyy-MM-dd | yyyyMMdd
+              format: yyyyMMdd | yyyy-MM-dd
               description: Окончание периода
             download:
               type: boolean
@@ -29,7 +29,7 @@ post:
             companyFilter:
               type: string
               format: uuid
-              description: уникальный идентификатор юридического лица
+              description: Уникальный идентификатор юридического лица
           required:
             - login
             - password

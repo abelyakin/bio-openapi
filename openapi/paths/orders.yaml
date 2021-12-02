@@ -19,7 +19,7 @@ post:
             page:
               type: number
               default: 1
-              description: отображаемая страница списка              
+              description: отображаемая страница заказов              
             state:
               type: string
               enum:
@@ -31,7 +31,7 @@ post:
             companyFilter:
               type: string
               format: uuid
-              description: уникальный идентификатор контрагента
+              description: уникальный идентификатор юридического лица
             sort:
               $ref: '../components/schemas/Sort.yaml'              
             search:

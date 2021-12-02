@@ -14,21 +14,9 @@ post:
               type: string
             password:
               type: string
-            ordersColumns:
-              type: array
-              description: Необходимый порядок и использование колонок на странице "Заказы"
-              items:
-                type: object
-                properties:
-                  name:
-                    type: string
-                    description: Техническое имя колонки
-                  isUse:
-                    type: boolean
-                    description: Признак использования колонки
             basket:
               type: array
-              description: Корзина для сохранения выбранного товара
+              description: Корзина (список выбранного товара)
               items:
                 type: object
                 properties:

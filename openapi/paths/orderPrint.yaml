@@ -21,6 +21,7 @@ post:
               type: string
               description: Имя печатной формы
               enum:
+                - INVOICE
                 - ORDER
                 - KP
                 - UPD
@@ -32,7 +33,7 @@ post:
                 - XLSX
             number:
               type: string
-              description: Номер реализации (необходим дял печать УПД)
+              description: Номер реализации (необходим для печати УПД)
           required:
             - login
             - password

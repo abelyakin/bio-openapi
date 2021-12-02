@@ -2,7 +2,7 @@ post:
   tags:
     - Bonuses
   summary: Ведомость по бонусам
-  description: Получение движений по приходу/расходу бонусов
+  description: Получение движений по поступлению и списанию бонусов клиента
   operationId: bonuses
   requestBody:
     required: true
@@ -15,6 +15,20 @@ post:
               type: string
             password:
               type: string
+            startDate:
+              type: string
+              format: yyyyMMdd | yyyy-MM-dd
+              description: 'Начало периода'
+            endDate:
+              type: string
+              format: yyyyMMdd | yyyy-MM-dd
+              description: 'Конец периода'
+            trend:
+              type: string              
+              enum:
+                - 'ASC'
+                - 'DESC'                
+              description: 'Направление сортировки'
           required:
             - login
             - password    

@@ -30,7 +30,9 @@ post:
             type: object
             properties:
               result:
-                type: ok                
+                type: string
+                enum: 
+                  - 'ok'
                 description: Информирование об успешной установке комментария
 
 
