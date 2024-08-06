@@ -1,0 +1,32 @@
+post:
+  tags:
+    - Product
+  summary: Ожидаемые поставки товара
+  description: Получение данных о планируемых поставках по выбранному товару
+  operationId: productExpected
+  requestBody:
+    content:
+      'application/json; charset=utf-8':
+        schema:
+          type: object
+          properties:
+            login:
+              type: string
+            password:
+              type: string
+            code:
+              type: string
+              description: Код товара
+          required:
+            - login
+            - password
+            - code
+  responses:
+    '200':
+      description: OK
+      content:
+        'application/json; charset=utf-8':
+          schema:
+            $ref: '../components/schemas/ProductExpected.yaml'
+
+

@@ -1,0 +1,14 @@
+type: array
+description: Массив для сохранения корзины пользователя
+items:
+  type: object
+  properties:
+    expectedDate:
+      type: string
+      description: Дата ожидания поставки
+    available:
+      type: number
+      description: Количество доступных товаров
+    reserved:
+      type: number
+      description: Количество товаров в резерве
