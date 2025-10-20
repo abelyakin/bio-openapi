@@ -1,5 +1,8 @@
 type: object
 properties:
+  barcode:
+    type: string
+    description: Штрихкод товара
   code:
     type: string
     description: Код товара
@@ -64,7 +67,7 @@ properties:
     type: number
     description: Гарантия (кол-во месяцев)
   img:
-    type: string    
+    type: string
     description: Ссылка на основную картинку товара
   inStock:
     type: number
@@ -81,15 +84,15 @@ properties:
   receiptDate:
     type: string
     format: 'dd.MM.yyyy'
-    description: Дата поставки на склад  
+    description: Дата поставки на склад
   dilerPrice:
     type: number
     description: Дилерская цена
   dilerCurrency:
-    type: string    
-    description: Валюта дилерской цены  
+    type: string
+    description: Валюта дилерской цены
   dilerUnit:
-    type: string    
+    type: string
     description: Дилерская единица измерения (если отсутствует, совпадает с полем 'unit')
   dilerPriceRUB:
     type: number
@@ -98,10 +101,10 @@ properties:
     type: number
     description: Розничная цена
   priceCurrency:
-    type: string    
+    type: string
     description: Валюта розничной цены
   priceUnit:
-    type: string    
+    type: string
     description: Розничная единица измерения (если отсутствует, совпадает с полем 'unit')
   priceRUB:
     type: number
@@ -113,10 +116,10 @@ properties:
       type: object
       properties:
         prop:
-          type: string    
+          type: string
           description: Характеристика
         value:
-          type: string    
+          type: string
           description: Значение характеристики
   files:
     type: array
@@ -125,12 +128,12 @@ properties:
       type: object
       properties:
         name:
-          type: string    
+          type: string
           description: Наименование файла (вкл. расширение)
         ref:
-          type: string    
+          type: string
           format: uuid
           description: Уникальный идентификатор файла
         descr:
-          type: string    
-          description: Описание файла        
+          type: string
+          description: Описание файла
